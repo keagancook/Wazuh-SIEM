@@ -18,10 +18,10 @@ The purpose of this system is, primarily, to increase the security posture and v
 * Slack integration for instant mobile alerts
 #### **Technical Stack**
 * Server: Ubuntu Linux
-- SIEM Tools: ELK Stack, Splunk, Wazuh
-- IDS/IPS: Suricata, Snort
-- Log Management: Elasticsearch, Kibana
-- Programming/Scripting: Python, Bash
+* SIEM Tools: ELK Stack, Splunk, Wazuh
+* IDS/IPS: Suricata, Snort
+* Log Management: Elasticsearch, Kibana
+* Programming/Scripting: Python, Bash
 #### **Results/Impact**
 * Prevented over 200 SSH bruteforce attempts per week with automated firewall blocking
 * Automated 100% of log aggregation tasks
