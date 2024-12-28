@@ -104,3 +104,27 @@ After configuring Wazuh, restart the Wazuh manager to apply the changes:
 ###### **3.3 Verify Suricata Alerts in Wazuh**
 
 Now, you should be able to view Suricata alerts within Wazuh. The alerts will be available in the Wazuh interface under **Security Events**.
+
+#### HOW TO START SURICATA IN NFQ MODE AT BOOT TIME
+
+Unfortunately these variables in `/etc/default` have been made obsolete in 2016. AF_PACKET is now the preselected (and hardcoded) mode in the Suricata package’s systemd unit file. The `init.d` scripts are no longer used in recent Debian versions, AFAIK. Systemd is the way to go.
+
+It’s not a good idea to directly edit the package systemd unit file (`/lib/systemd/system/suricata.service`) though, since it will be overwritten with each package update.  
+If you want, you can override the command line in the packaged systemd unit file using systemd’s drop-in feature. Just create a file `/etc/systemd/system/suricata.service.d/override.conf` with the following content:
+
+`[Service] ExecStart= ExecStart=/usr/bin/suricata -D -q 0 -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid`
+
+This overrides the default AF_PACKET start by first clearing the previous `ExecStart` directive and then sets a new one, which you can now tailor as you wish.  
+Then run
+
+`sudo systemctl daemon-reload`
+
+and then
+
+`sudo systemctl restart suricata`
+
+which will then use the overridden command line (note the `Drop-In` field):
+
+``$ sudo systemctl status suricata * suricata.service - Suricata IDS/IDP daemon      Loaded: loaded (/lib/systemd/system/suricata.service; enabled; preset: enabled)     Drop-In: /etc/systemd/system/suricata.service.d              `-override.conf      Active: active (running) since Mon 2024-05-13 21:39:15 CEST; 2min 27s ago        Docs: man:suricata(8)              man:suricatasc(8)              https://suricata.io/documentation/    Main PID: 1748 (Suricata-Main)       Tasks: 16 (limit: 1595)         CPU: 38.062s      CGroup: /system.slice/suricata.service              `-1748 /usr/bin/suricata -D -q 0 -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid``
+
+This is expected to be upgrade-safe since it does not touch the original packaged unit file.
