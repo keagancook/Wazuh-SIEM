@@ -35,7 +35,7 @@ Next, verify tmux is installed to use persistent SSH sessions in the event of di
 	`sudo apt install tmux`
 	`tmux`
 
-##### 2.0 Expand File System
+##### **2.0 Expand File System**
 ###### **Explanation**
 The Ubuntu default installation uses a Logical Volume Manager (LVM) to group separate block devices (partitions) together into Volume Groups (VGs), and then chop those VGs up into logical block devices, or Logical Volumes (LVs). LVs are the abstracted block devices upon which your usable file system resides.
 
