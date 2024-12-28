@@ -1,0 +1,17 @@
+ <!--SLACK INTEGRATION-->
+
+  <!--Alerts for successful ssh auth from public ip, and successful sudo auth-->
+  <integration>
+    <name>slack</name>
+    <hook_url>https://hooks.slack.com/services/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</hook_url>
+    <rule_id>100099, 5402, 100010, 100011, 100012, 100013,</rule_id>
+    <alert_format>json</alert_format>
+  </integration>
+
+  <!--alerts any rule over level 12 to slack -->
+  <integration>
+    <name>slack</name>
+    <hook_url>https://hooks.slack.com/services/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</hook_url>
+    <level>12</level>
+    <alert_format>json</alert_format>
+  </integration>
