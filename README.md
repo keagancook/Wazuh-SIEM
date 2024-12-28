@@ -35,8 +35,7 @@ Next, verify tmux is installed to use persistent SSH sessions in the event of di
 	`sudo apt install tmux`
 	`tmux`
 
-##### **2.0 Expand File System**
-###### **Explanation**
+###### **2.0 Expand File System**
 The Ubuntu default installation uses a Logical Volume Manager (LVM) to group separate block devices (partitions) together into Volume Groups (VGs), and then chop those VGs up into logical block devices, or Logical Volumes (LVs). LVs are the abstracted block devices upon which your usable file system resides.
 
 With the default installation settings, Ubuntu won't take advantage of the entire disk. Bellow are the steps to correct this and maximize disk utilization.
@@ -61,6 +60,7 @@ Installation succeeded and the web interface was confirmed to be working with ht
 
 ****note, make sure to verify the URL in the above command is up to date**
 
+----
 
 ### **CONIGURATIONS**
 #### AGENT CONFIGURATION
