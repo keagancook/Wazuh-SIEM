@@ -1,0 +1,22 @@
+
+<group name="nmap scanning, dos, active_response_event,">
+  <rule id="100200" level="12">
+    <if_sid>86600</if_sid>
+    <field name="event_type">^alert$</field>
+    <match>ET DOS Inbound GoldenEye DoS attack</match>
+    <description>GoldenEye DoS attack has been detected. Banning IP. </description>
+    <mitre>
+      <id>T1498</id>
+    </mitre>
+  </rule>
+
+  <rule id="100201" level="12">
+    <if_sid>86600</if_sid>
+    <field name="event_type">^alert$</field>
+    <match>ET SCAN Nmap Scripting Engine User-Agent Detected (Nmap Scripting Engine)</match>
+    <description>Nmap scripting engine detected. Banning IP. </description>
+    <mitre>
+      <id>T1595</id>
+    </mitre>
+  </rule>
+</group>
