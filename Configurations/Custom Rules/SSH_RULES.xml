@@ -1,0 +1,45 @@
+<!--SUCCESSFUL SSH LOGIN FROM PUBLIC IP-->
+<group name="sshd, authentication_success,">
+  <rule id="100099" level="5">
+    <if_sid>5715</if_sid>
+    <match type="pcre2">\b(?!(10)|192\.168|172\.(2[0-9]|1[6-9]|3[0-1])|(25[6-9]|2[6-9][0-9]|[3-9][0-9][0-9]|99[1-9]))[0-9]{1,3}\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)</match>
+    <description>Successful SSH login from public IP</description>
+    <group>sshd</group>
+  </rule>
+</group>
+
+<!--SSH BRUTEFORCE RULES-->
+<group name="ssh bruteforce, active_response_event,">
+  <rule id="100010" level="8">
+    <if_sid>5710</if_sid>
+    <match type="pcre2">\b(?!(10)|192\.168|172\.(2[0-9]|1[6-9]|3[0-1])|(25[6-9]|2[6-9][0-9]|[3-9][0-9][0-9]|99[1-9]))[0-9]{1,3}\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)</match>
+    <description>Someone tried to SSH with the wrong username. Banning IP. </description>
+  </rule>
+
+  <rule id="100011" level="10">
+    <if_sid>5763</if_sid>
+    <match type="pcre2">\b(?!(10)|192\.168|172\.(2[0-9]|1[6-9]|3[0-1])|(25[6-9]|2[6-9][0-9]|[3-9][0-9][0-9]|99[1-9]))[0-9]{1,3}\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)</match>
+    <description>SSH BRUTEFORCE DETECTED!!! Banning IP.  </description>
+  </rule>
+
+  <rule id="100012" level="6">
+    <if_sid>2502, 5503</if_sid>
+    <description>More than one incorrect SSH attempt from public IP. Banning IP. </description>
+    <!--this match field checks if it is a public IP address-->
+    <match type="pcre2">\b(?!(10)|192\.168|172\.(2[0-9]|1[6-9]|3[0-1])|(25[6-9]|2[6-9][0-9]|[3-9][0-9][0-9]|99[1-9]))[0-9]{1,3}\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)</match>
+  </rule>
+
+  <rule id="100013" level="8">
+    <if_sid>2502, 5760</if_sid>
+    <description>Someone attempted ROOT login over SSH. Banning IP. </description>
+    <!--this match field checks if it is a public IP address-->
+    <match type="pcre2">\b(?!(10)|192\.168|172\.(2[0-9]|1[6-9]|3[0-1])|(25[6-9]|2[6-9][0-9]|[3-9][0-9][0-9]|99[1-9]))[0-9]{1,3}\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)</match>
+  </rule>
+
+    <rule id="100014" level="3">
+    <if_sid>86601</if_sid>
+    <match>ET SCAN Potential SSH Scan</match>
+    <description>SSH Scanning Detected. Banning IP. </description>
+  </rule>
+
+</group>
