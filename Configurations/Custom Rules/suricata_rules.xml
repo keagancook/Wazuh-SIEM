@@ -1,0 +1,28 @@
+<group name="ids, suricata, reputation,">
+
+  <rule id="100020" level="3">
+    <if_sid>86601</if_sid>
+    <match>ET DROP</match>
+    <description>Suricata bad IP reputation traffic. Banning IP. </description>
+  </rule>
+
+  <rule id="100021" level="3">
+    <if_sid>86601</if_sid>
+    <match>ET 3CORESec Poor Reputation IP</match>
+    <description>Suricata bad IP reputation traffic. Banning IP. </description>
+  </rule>
+
+  <rule id="100022" level="3">
+    <if_sid>86601</if_sid>
+    <match>ET CINS Active Threat Intelligence Poor Reputation IP</match>
+    <description>Suricata bad IP reputation traffic. Banning IP. </description>
+  </rule>
+
+  <rule id="100023" level="3">
+    <if_sid>86601</if_sid>
+    <match>ET SCAN Zmap User-Agent</match>
+    <description>Zmap scan detected. Banning IP. </description>
+  </rule>
+
+
+</group>
