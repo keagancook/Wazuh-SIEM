@@ -4,6 +4,7 @@
 The goal of this repository is to document the installation and management of a Wazuh instance. This Wazuh server will act as a SIEM console for a home network. This system will aggregate logs from multiple sources, and use Suricata to monitor network traffic and generate alerts.
 
 The purpose of this system is for education and proof of concept, along with increasing home network security posture.
+
 ----
 ### **HARDWARE**
 Mac Mini (mid 2011)
@@ -12,6 +13,8 @@ RAM: 16gb
 500GB Hard Drive
 ### **OPERATING SYSTEM**
 Ubuntu Server 24.04.1 LTS
+
+----
 ### **INSTALLATION PROCEDURES**
 ##### 1.0 Ubuntu Installation
 ###### **1.1 Creating Installation Media**
