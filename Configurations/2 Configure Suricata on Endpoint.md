@@ -105,7 +105,7 @@ After configuring Wazuh, restart the Wazuh manager to apply the changes:
 
 Now, you should be able to view Suricata alerts within Wazuh. The alerts will be available in the Wazuh interface under **Security Events**.
 
-#### HOW TO START SURICATA IN NFQ MODE AT BOOT TIME
+## HOW TO START SURICATA IN NFQ MODE AT BOOT TIME
 
 Unfortunately these variables in `/etc/default` have been made obsolete in 2016. AF_PACKET is now the preselected (and hardcoded) mode in the Suricata package’s systemd unit file. The `init.d` scripts are no longer used in recent Debian versions, AFAIK. Systemd is the way to go.
 
