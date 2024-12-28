@@ -1,0 +1,70 @@
+  <!--MANAGER ACTIVE RESPONSE-->
+  <active-response>
+    <command>firewall-drop</command>
+    <location>server</location>
+    <rules_id>100200, 100201, 100010, 100011, 100012, 100013, 100014, 100020, 100021, 100022, 100023,</rules_id>
+    <timeout>7200</timeout>
+  </active-response>
+
+  <!--GOLDENEYE DOS AND NMAP SCAN BLOCK-->
+
+  <active-response>
+    <command>firewall-drop</command>
+    <location>all</location>
+    <rules_id>100200, 100201</rules_id>
+    <timeout>7200</timeout>
+  </active-response>
+
+  <!-- SSH WRONG USERNAME BLOCK-->
+
+  <active-response>
+    <command>firewall-drop</command>
+    <location>all</location>
+    <rules_id>100010</rules_id>
+    <timeout>7200</timeout>
+  </active-response>
+
+  <!--SSH BRUTEFORCE DETECTED BLOCK -->
+
+  <active-response>
+    <command>firewall-drop</command>
+    <location>all</location>
+    <rules_id>100011</rules_id>
+    <timeout>7200</timeout>
+  </active-response>
+
+  <!--SSH MULTIPLE FAILED LOGIN ATTEMPTS-->
+
+  <active-response>
+    <command>firewall-drop</command>
+    <location>all</location>
+    <rules_id>100012</rules_id>
+    <timeout>7200</timeout>
+  </active-response>
+
+  <!--SSH ROOT USER ATTEMPTED-->
+
+  <active-response>
+    <command>firewall-drop</command>
+    <location>all</location>
+    <rules_id>100013</rules_id>
+  </active-response>
+
+  <!--SSH SCAN DETECTED-->
+
+  <active-response>
+    <command>firewall-drop</command>
+    <location>all</location>
+    <rules_id>100014</rules_id>
+    <timeout>7200</timeout>
+  </active-response>
+
+  <!--SURICATA GENERIC FIREWALL BLOCK RULES-->
+
+  <active-response>
+    <command>firewall-drop</command>
+    <location>all</location>
+    <rules_id>100020, 100021, 100022, 100023,</rules_id>
+    <timeout>7200</timeout>
+  </active-response>
+
