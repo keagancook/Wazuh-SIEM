@@ -30,6 +30,6 @@ The purpose of this system is, primarily, to increase the security posture and v
 * Collected and analyzed over 2000 log entries with the ELK Stack, gaining insights into network behavior
 
 
-
+---
 
 
